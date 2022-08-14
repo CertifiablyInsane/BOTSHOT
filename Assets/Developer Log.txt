@@ -1,3 +1,6 @@
+2022-08-14
+Made first git commit for transition to laptop based building during University hours.
+
 2022-08-07
 Created new particle system for the grunt's energy ball
 
