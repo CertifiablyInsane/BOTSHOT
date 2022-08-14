@@ -1,0 +1,22 @@
+2022-08-07
+Created new particle system for the grunt's energy ball
+
+2022-08-05
+Reworked movement, grenade launcher done. Working on camera tilt controls
+
+2022-08-03
+Shotgun and Grenade Launcher modelling and animating complete, shotgun bullet tracers finished a few days ago. Working on grenade projectiles now.
+
+2022-07-25
+Robot model completed and animated to work within engine. AI rework commenced, A_CHASE, A_ATTACK, and A_PAIN, currently functioning.
+Pain animation transition incredibly buggy due to the nature of transitions, needs refining. Need better projectile model and modelled guns next.
+
+2022-07-10
+Painstate complete, rearranged some death code
+
+2022-07-07
+Projectiles complete. Added more AI scripting in terms of A_CHASE and A_ATTACK and collision refining. 
+Animations worked on, painstate work started
+
+2022-07-06
+Log Created
