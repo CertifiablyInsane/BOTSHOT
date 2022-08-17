@@ -8,6 +8,7 @@ public class weapon_pistol : MonoBehaviour
     [SerializeField] private float range = 100f;
     [SerializeField] private float weaponFireCooldownTime = 0.50f;
     [SerializeField] private float weaponAltfireCooldownTime = 0.167f;
+    [SerializeField] private Vector3 altBulletSpead = new Vector3(0.01f, 0.01f, 0.01f);
     public bool weaponFireCooldown = true;
 
     [SerializeField] private ParticleSystem shootingParticle;
@@ -19,12 +20,14 @@ public class weapon_pistol : MonoBehaviour
 
     private Animator animator;
     private playerController playerController;
+    private player playerScript;
 
 
     private void Awake()
     {
         playerController = player.GetComponent<playerController>();
         animator = GetComponent<Animator>();
+        playerScript = player.GetComponent<player>();
     }
     void Update()
     {
@@ -34,6 +37,7 @@ public class weapon_pistol : MonoBehaviour
     {
         if (weaponFireCooldown)
         {
+            //requires no ammo to use
             StartCoroutine(WeaponFireDelay());
             shootingParticle.Play();
 
@@ -60,30 +64,49 @@ public class weapon_pistol : MonoBehaviour
     {
         if(weaponFireCooldown)
         {
-            StartCoroutine(WeaponAltfireDelay());
-            shootingParticle.Play();
-
-            Vector3 direction = GetDirection();
-            RaycastHit hit;
-
-            if (Physics.Raycast(bulletSpawnPos.position, direction, out hit, range))
+            if(playerScript.pistolAmmo > 0)
             {
-                TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
-                StartCoroutine(SpawnTrail(trail, hit));
+                playerScript.pistolAmmo--;
+                StartCoroutine(WeaponAltfireDelay());
+                shootingParticle.Play();
 
-                int damageMod = Random.Range(-1, 2); //-1, 0, 1
-                int damage = avgDamage + damageMod * 5;
-                if (hit.transform.tag == "Enemy")
+                Vector3 direction = GetAltfireDirection();
+                RaycastHit hit;
+
+                if (Physics.Raycast(bulletSpawnPos.position, direction, out hit, range))
                 {
-                    hit.transform.BroadcastMessage("TakeDamage", damage);
-                }
+                    TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
+                    StartCoroutine(SpawnTrail(trail, hit));
 
+                    int damageMod = Random.Range(-1, 2); //-1, 0, 1
+                    int damage = avgDamage + damageMod * 5;
+                    if (hit.transform.tag == "Enemy")
+                    {
+                        hit.transform.BroadcastMessage("TakeDamage", damage);
+                    }
+
+                }
+            }
+            else
+            {
+                //out of ammo
             }
         }
     }
     private Vector3 GetDirection()
     {
         Vector3 direction = fpsCam.transform.forward;
+        direction.Normalize();
+        return direction;
+    }
+    private Vector3 GetAltfireDirection()
+    {
+        Vector3 direction = fpsCam.transform.forward;
+        direction += new Vector3(
+            Random.Range(-altBulletSpead.x, altBulletSpead.x),
+            Random.Range(-altBulletSpead.y, altBulletSpead.y),
+            Random.Range(-altBulletSpead.z, altBulletSpead.z)
+            );
         direction.Normalize();
         return direction;
     }

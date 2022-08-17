@@ -12,6 +12,8 @@ public class playerInventory : MonoBehaviour
     [SerializeField] private GameObject shotgun;
     [SerializeField] private GameObject grenadeLauncher;
 
+    [SerializeField] ui_manager UIManager;
+
     private weapon_pistol pistolScript;
     private weapon_shotgun shotgunScript;
     private weapon_grenadelauncher grenadeLauncherScript;
@@ -54,9 +56,9 @@ public class playerInventory : MonoBehaviour
     {
         if(hasPistol)
         {
-            Debug.Log("swapped");
             DisableAll();
             pistol.SetActive(true);
+            UIManager.activeWeapon = "Pistol";
         }
     }
     private void Shotgun()
@@ -65,6 +67,7 @@ public class playerInventory : MonoBehaviour
         {
             DisableAll();
             shotgun.SetActive(true);
+            UIManager.activeWeapon = "Shotgun";
         }
     }
     private void GrenadeLauncher()
@@ -73,6 +76,7 @@ public class playerInventory : MonoBehaviour
         {
             DisableAll();
             grenadeLauncher.SetActive(true);
+            UIManager.activeWeapon = "GrenadeLauncher";
         }
     }
     private void DisableAll()

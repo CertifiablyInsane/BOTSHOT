@@ -20,13 +20,13 @@ public class weapon_shotgun : MonoBehaviour
     private playerController playerController;
 
     private Animator animator;
-
-
+    private player playerScript;
 
     private void Awake()
     {
         playerController = player.GetComponent<playerController>();
         animator = GetComponent<Animator>();
+        playerScript = player.GetComponent<player>();
     }
     void Update()
     {
@@ -36,26 +36,30 @@ public class weapon_shotgun : MonoBehaviour
     {
         if(weaponFireCooldown)
         {
-            StartCoroutine(WeaponFireDelay());
-            shootingParticle.Play();
-
-            for(int i = 0; i < 8; i++) //8 pellets
+            if(playerScript.shotgunAmmo > 0)
             {
-                Vector3 direction = GetDirection();
-                RaycastHit hit;
-                //Cast hitscan ray
-                if (Physics.Raycast(bulletSpawnPos.position, direction, out hit, range))
+                playerScript.shotgunAmmo--;
+                StartCoroutine(WeaponFireDelay());
+                shootingParticle.Play();
+
+                for(int i = 0; i < 8; i++) //8 pellets
                 {
-                    TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
-                    StartCoroutine(SpawnTrail(trail, hit));
-
-                    int damageMod = Random.Range(-1, 2); //-1, 0, 1
-                    int damage = avgDamage + damageMod * 5;
-                    if (hit.transform.tag == "Enemy")
+                    Vector3 direction = GetDirection();
+                    RaycastHit hit;
+                    //Cast hitscan ray
+                    if (Physics.Raycast(bulletSpawnPos.position, direction, out hit, range))
                     {
-                        hit.transform.BroadcastMessage("TakeDamage", damage);
-                    }
+                        TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
+                        StartCoroutine(SpawnTrail(trail, hit));
 
+                        int damageMod = Random.Range(-1, 2); //-1, 0, 1
+                        int damage = avgDamage + damageMod * 5;
+                        if (hit.transform.tag == "Enemy")
+                        {
+                            hit.transform.BroadcastMessage("TakeDamage", damage);
+                        }
+
+                    }
                 }
             }
         }
@@ -64,29 +68,32 @@ public class weapon_shotgun : MonoBehaviour
     {
         if(weaponFireCooldown)
         {
-            StartCoroutine(WeaponAltfireDelay());
-            shootingParticle.Play();
-
-            for (int i = 0; i < 6; i++) //6 pellets
+            if(playerScript.shotgunAmmo > 0)
             {
-                Vector3 direction = GetAltfireDirection();
-                RaycastHit hit;
-                //Cast hitscan ray
-                if (Physics.Raycast(bulletSpawnPos.position, direction, out hit, range))
+                playerScript.shotgunAmmo--;
+                StartCoroutine(WeaponAltfireDelay());
+                shootingParticle.Play();
+
+                for (int i = 0; i < 6; i++) //6 pellets
                 {
-                    TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
-                    StartCoroutine(SpawnTrail(trail, hit));
-
-                    int damageMod = Random.Range(-1, 2); //-1, 0, 1
-                    int damage = avgDamage + damageMod * 5;
-                    if (hit.transform.tag == "Enemy")
+                    Vector3 direction = GetAltfireDirection();
+                    RaycastHit hit;
+                    //Cast hitscan ray
+                    if (Physics.Raycast(bulletSpawnPos.position, direction, out hit, range))
                     {
-                        hit.transform.BroadcastMessage("TakeDamage", damage);
-                    }
+                        TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPos.position, Quaternion.identity);
+                        StartCoroutine(SpawnTrail(trail, hit));
 
+                        int damageMod = Random.Range(-1, 2); //-1, 0, 1
+                        int damage = avgDamage + damageMod * 5;
+                        if (hit.transform.tag == "Enemy")
+                        {
+                            hit.transform.BroadcastMessage("TakeDamage", damage);
+                        }
+
+                    }
                 }
             }
-
         }
     }
     private Vector3 GetDirection()

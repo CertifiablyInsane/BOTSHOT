@@ -74,7 +74,7 @@ public class ai_grunt : MonoBehaviour
     {
         navAgent.isStopped = true;
         StartCoroutine("FireProjectile");
-        StartCoroutine("SuspendAIForTime", 2.125f);
+        StartCoroutine("SuspendAIForTime", 1.0625f);
         behaviourState = "A_CHASE";
     }
     private void DecrementAndTryAttack()
@@ -83,7 +83,7 @@ public class ai_grunt : MonoBehaviour
         {
             float distanceFromTarget = Vector3.Distance(transform.position, playerPos.position);
             attackCooldown += 30; //try again in 30 tics
-            if (1f / distanceFromTarget * 2.5f > Random.Range(0f, 1f)) //at 5 it's 50%, at 10 it's 25%, etc.
+            if (1f / distanceFromTarget * 4f > Random.Range(0f, 1f)) //at 5 it's 50%, at 10 it's 25%, etc.
             {
                 behaviourState = "A_ATTACK";
             }
@@ -113,7 +113,7 @@ public class ai_grunt : MonoBehaviour
     }
     private void OnPainTriggered()
     {
-        StartCoroutine("SuspendAIForTime", 2f);
+        StartCoroutine("SuspendAIForTime", 1f);
         StartCoroutine("PainStun");
     }
 
@@ -132,7 +132,7 @@ public class ai_grunt : MonoBehaviour
         animator.SetBool("Pain", false);
         animator.SetBool("Attacking", true);
 
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.375f);
         GameObject newProjectile = Instantiate(projectile, spawnPos, Quaternion.identity, GameObject.Find("gm").transform);
         newProjectile.name = transform.name + " Projectile " + projectileID;
         projectileID++;
@@ -146,7 +146,7 @@ public class ai_grunt : MonoBehaviour
         animator.SetBool("Attacking", false);
         animator.SetBool("Pain", true);
         navAgent.isStopped = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         behaviourState = "A_ATTACK";
     }
     private IEnumerator SuspendAIForTime(float suspensionTime) //suspend AI for time in seconds

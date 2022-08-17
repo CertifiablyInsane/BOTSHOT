@@ -15,6 +15,7 @@ public class weapon_grenadelauncher : MonoBehaviour
 
     private Animator animator;
     private playerController playerController;
+    private player playerScript;
     public bool weaponFireCooldown = true;
 
 
@@ -22,6 +23,7 @@ public class weapon_grenadelauncher : MonoBehaviour
     {
         playerController = player.GetComponent<playerController>();
         animator = GetComponent<Animator>();
+        playerScript = player.GetComponent<player>();
     }
     void Update()
     {
@@ -31,21 +33,35 @@ public class weapon_grenadelauncher : MonoBehaviour
     {
         if(weaponFireCooldown)
         {
-            StartCoroutine(WeaponFireDelay());
-            GameObject newProjectile = Instantiate(projectile, bulletSpawnPos.position, fpsCam.transform.rotation, gm.transform);
+            if(playerScript.grenadeAmmo > 0)
+            {
+                playerScript.grenadeAmmo--;
+                StartCoroutine(WeaponFireDelay());
+                GameObject newProjectile = Instantiate(projectile, bulletSpawnPos.position, fpsCam.transform.rotation, gm.transform);
+            }
         }
     }
     private void Altfire()
     {
         if (weaponFireCooldown)
         {
-            StartCoroutine(WeaponAltfireDelay());
-            for(int i = 0; i < 5; i++)
+            if(playerScript.grenadeAmmo >= 5)
             {
-                GameObject newProjectile = Instantiate(projectile, bulletSpawnPos.position, fpsCam.transform.rotation, gm.transform);
-                float spreadValue = (i - 2) * 0.1f;
-                newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.right * spreadValue * 50f);
+                playerScript.grenadeAmmo -= 5;
+                StartCoroutine(WeaponAltfireDelay());
+                StartCoroutine(AltfireShoot());
             }
+        }
+    }
+
+    IEnumerator AltfireShoot()
+    {
+        yield return new WaitForSeconds(1f);
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject newProjectile = Instantiate(projectile, bulletSpawnPos.position, fpsCam.transform.rotation, gm.transform);
+            float spreadValue = (i - 2) * 0.075f;
+            newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.right * spreadValue * 50f);
         }
     }
     IEnumerator WeaponFireDelay()

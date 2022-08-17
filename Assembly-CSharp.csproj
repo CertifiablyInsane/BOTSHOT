@@ -56,21 +56,21 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Items\item_medikit.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
-    <Compile Include="Assets\Scripts\weapon_grenadelauncher.cs" />
-    <Compile Include="Assets\Scripts\playerController.cs" />
+    <Compile Include="Assets\Scripts\Player\weapon_grenadelauncher.cs" />
+    <Compile Include="Assets\Scripts\Player\playerController.cs" />
     <Compile Include="Assets\Scripts\trigger_hurt.cs" />
-    <Compile Include="Assets\Scripts\enemy.cs" />
+    <Compile Include="Assets\Scripts\Enemies\enemy.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
-    <Compile Include="Assets\Scripts\playerControls.cs" />
-    <Compile Include="Assets\Scripts\weapon_pistol.cs" />
-    <Compile Include="Assets\Scripts\projectile_lightningball.cs" />
-    <Compile Include="Assets\Scripts\projectile_handler.cs" />
+    <Compile Include="Assets\Scripts\Player\playerControls.cs" />
+    <Compile Include="Assets\Scripts\Player\weapon_pistol.cs" />
+    <Compile Include="Assets\Scripts\Enemies\projectile_lightningball.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshLink.cs" />
     <Compile Include="Assets\Scripts\tags.cs" />
-    <Compile Include="Assets\Scripts\playerInventory.cs" />
-    <Compile Include="Assets\Scripts\ai_grunt.cs" />
-    <Compile Include="Assets\Scripts\weapon_shotgun.cs" />
+    <Compile Include="Assets\Scripts\Player\playerInventory.cs" />
+    <Compile Include="Assets\Scripts\Enemies\ai_grunt.cs" />
+    <Compile Include="Assets\Scripts\Player\weapon_shotgun.cs" />
     <Compile Include="Assets\Scripts\camera_controller.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifier.cs" />
     <Compile Include="Assets\Scripts\sprite_face_player.cs" />
@@ -78,7 +78,12 @@
     <Compile Include="Assets\Scripts\settings.cs" />
     <Compile Include="Assets\Scripts\ui_manager.cs" />
     <Compile Include="Assets\UnityParticleEffects\Misc Effects\Scripts\SpawnEffect.cs" />
-    <Compile Include="Assets\Scripts\player.cs" />
+    <Compile Include="Assets\Scripts\Player\player.cs" />
+    <Compile Include="Assets\Scripts\Items\item_shotgun.cs" />
+    <Compile Include="Assets\Scripts\Items\ammo_shotgun.cs" />
+    <Compile Include="Assets\Scripts\Items\ammo_pistol.cs" />
+    <Compile Include="Assets\Scripts\Items\item_grenadelauncher.cs" />
+    <Compile Include="Assets\Scripts\Items\ammo_grenade.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Developer Log.txt" />
