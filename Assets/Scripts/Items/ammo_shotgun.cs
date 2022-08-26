@@ -10,6 +10,7 @@ public class ammo_shotgun : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<player>().shotgunAmmo += 8;
+            other.gameObject.GetComponent<playerSounds>().PlaySound(1); //ammo pickup sound
             Destroy(gameObject);
         }
     }

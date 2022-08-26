@@ -21,6 +21,7 @@ public class weapon_pistol : MonoBehaviour
     private Animator animator;
     private playerController playerController;
     private player playerScript;
+    private AudioSource S_Fire;
 
 
     private void Awake()
@@ -28,6 +29,7 @@ public class weapon_pistol : MonoBehaviour
         playerController = player.GetComponent<playerController>();
         animator = GetComponent<Animator>();
         playerScript = player.GetComponent<player>();
+        S_Fire = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -40,6 +42,8 @@ public class weapon_pistol : MonoBehaviour
             //requires no ammo to use
             StartCoroutine(WeaponFireDelay());
             shootingParticle.Play();
+            S_Fire.pitch = GetRandomPitch(0.8f);
+            S_Fire.Play();
 
             //fire single bullet
                 Vector3 direction = GetDirection();
@@ -69,6 +73,8 @@ public class weapon_pistol : MonoBehaviour
                 playerScript.pistolAmmo--;
                 StartCoroutine(WeaponAltfireDelay());
                 shootingParticle.Play();
+                S_Fire.pitch = GetRandomPitch(1.0f);
+                S_Fire.Play();
 
                 Vector3 direction = GetAltfireDirection();
                 RaycastHit hit;
@@ -109,6 +115,12 @@ public class weapon_pistol : MonoBehaviour
             );
         direction.Normalize();
         return direction;
+    }
+
+    private float GetRandomPitch(float f)
+    {
+        float value = Random.Range(-0.05f, 0.05f) + f;
+        return value;
     }
     private IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)
     {

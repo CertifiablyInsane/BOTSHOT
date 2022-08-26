@@ -9,6 +9,7 @@ public class ai_grunt : MonoBehaviour
     [SerializeField] private Transform playerPos;
     [SerializeField] private GameObject projectile;
     [SerializeField] private GameObject ragdoll;
+    [SerializeField] private AudioClip[] soundLibrary;
 
     private NavMeshAgent navAgent;
     private Animator animator;
@@ -18,11 +19,14 @@ public class ai_grunt : MonoBehaviour
     private int attackCooldown = 60;
     private int projectileID = 0;
 
+    private AudioSource currentSound;
+
     private void Awake()
     {
         navAgent = GetComponent<NavMeshAgent >();
         animator = GetComponent<Animator>();
         hitbox = GetComponent<CapsuleCollider>();
+        currentSound = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -38,11 +42,6 @@ public class ai_grunt : MonoBehaviour
                     break;
                 case "A_ATTACK":
                     A_ATTACK();
-                    break;
-                case "A_MELEE":
-                    //A_MELEE();
-                    break;
-                case "A_DEATH":
                     break;
             }
         }
@@ -67,12 +66,21 @@ public class ai_grunt : MonoBehaviour
         animator.SetBool("Attacking", false);
         animator.SetBool("Pain", false);
         navAgent.SetDestination(playerPos.position);
+        currentSound.clip = soundLibrary[0];
+        currentSound.loop = true;
+        if(!currentSound.isPlaying)
+        {
+            currentSound.Play();
+        }
         DecrementAndTryAttack();
     }
 
     private void A_ATTACK()
     {
         navAgent.isStopped = true;
+        currentSound.clip = soundLibrary[1];
+        currentSound.loop = false;
+        currentSound.Play();
         StartCoroutine("FireProjectile");
         StartCoroutine("SuspendAIForTime", 1.0625f);
         behaviourState = "A_CHASE";

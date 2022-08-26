@@ -12,6 +12,8 @@ public class playerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 3f;
     [SerializeField] private float mouseSensitivity = 100f;
     [SerializeField] private Transform cameraBody;
+    [SerializeField] private AudioClip[] footstepLibrary;
+
     private float yRotation = 0f;
     private float zRotation = 0f;
 
@@ -26,14 +28,18 @@ public class playerController : MonoBehaviour
 
     public bool isOnWeaponCooldown = false;
 
+    private float footstepTimer = 0;
+
     private CharacterController controller;
     private PlayerInput playerInput;
     private playerInventory playerInventory;
+    private AudioSource currentSound;
     void Awake()
     {
         controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         playerInventory = GetComponent<playerInventory>();
+        currentSound = GetComponent<AudioSource>();
         playerControls = new PlayerControls();
     }
     private void OnEnable()
@@ -91,6 +97,21 @@ public class playerController : MonoBehaviour
         currentInputVector = Vector2.SmoothDamp(currentInputVector, input, ref smoothInputVelocity, smoothInputSpeed);
         Vector3 move = transform.right * currentInputVector.x + transform.forward * currentInputVector.y;
         controller.Move(move * speed * Time.deltaTime);
+        if((isGrounded && input.x != 0) || (isGrounded && input.y != 0))
+        {
+            if(footstepTimer == 0 || (footstepTimer + 0.5f < Time.fixedTime))
+            {
+                AudioClip sound = GetFootstepSound();
+                currentSound.clip = sound;
+                currentSound.Play();
+                footstepTimer = Time.fixedTime;
+                Debug.Log(footstepTimer);
+            }
+        }
+        else
+        {
+            footstepTimer = 0;
+        }
 
         if (playerControls.Generic.jump.triggered && isGrounded)
         {
@@ -130,6 +151,13 @@ public class playerController : MonoBehaviour
         cameraBody.transform.localRotation = Quaternion.Euler(yRotation, 0f, currentRot.z);
 
         transform.Rotate(Vector3.up * mouseLook.x);
+    }
+
+    private AudioClip GetFootstepSound()
+    {
+        int i = Random.Range(0, 3);
+        AudioClip chosen = footstepLibrary[i];
+        return chosen;
     }
 
 }

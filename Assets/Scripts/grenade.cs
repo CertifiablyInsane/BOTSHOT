@@ -4,7 +4,7 @@ using UnityEngine;
 public class grenade : MonoBehaviour
 {
     private Rigidbody rb;
-    [SerializeField] private GameObject gm;
+    private AudioSource Sound;
     [SerializeField] private int fireForce = 40;
     [SerializeField] private float fuseTime = 1.5f;
     [SerializeField] private float explosionRadius = 3f;
@@ -16,6 +16,7 @@ public class grenade : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        Sound = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -49,6 +50,7 @@ public class grenade : MonoBehaviour
     private void Explode(string directHitTargetName)
     {
         explosionParticle.GetComponent<ParticleSystem>().Play();
+        Sound.Play();
         string[] validLayers = {"Enemy", "Player"};
         LayerMask mask = LayerMask.GetMask(validLayers);
         Collider[] targets = Physics.OverlapSphere(transform.position, explosionRadius, mask);

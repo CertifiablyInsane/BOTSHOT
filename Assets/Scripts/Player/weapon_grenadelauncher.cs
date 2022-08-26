@@ -17,6 +17,7 @@ public class weapon_grenadelauncher : MonoBehaviour
     private playerController playerController;
     private player playerScript;
     public bool weaponFireCooldown = true;
+    private AudioSource S_Fire;
 
 
     private void Awake()
@@ -24,6 +25,7 @@ public class weapon_grenadelauncher : MonoBehaviour
         playerController = player.GetComponent<playerController>();
         animator = GetComponent<Animator>();
         playerScript = player.GetComponent<player>();
+        S_Fire = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -35,6 +37,10 @@ public class weapon_grenadelauncher : MonoBehaviour
         {
             if(playerScript.grenadeAmmo > 0)
             {
+                S_Fire.pitch = GetRandomPitch(1.0f);
+                S_Fire.volume = 1.0f;
+                S_Fire.Play();
+
                 playerScript.grenadeAmmo--;
                 StartCoroutine(WeaponFireDelay());
                 GameObject newProjectile = Instantiate(projectile, bulletSpawnPos.position, fpsCam.transform.rotation, gm.transform);
@@ -53,10 +59,17 @@ public class weapon_grenadelauncher : MonoBehaviour
             }
         }
     }
-
+    private float GetRandomPitch(float f)
+    {
+        float value = Random.Range(-0.05f, 0.05f) + f;
+        return value;
+    }
     IEnumerator AltfireShoot()
     {
         yield return new WaitForSeconds(1f);
+        S_Fire.pitch = GetRandomPitch(0.8f);
+        S_Fire.volume = 1.2f;
+        S_Fire.Play();
         for (int i = 0; i < 5; i++)
         {
             GameObject newProjectile = Instantiate(projectile, bulletSpawnPos.position, fpsCam.transform.rotation, gm.transform);

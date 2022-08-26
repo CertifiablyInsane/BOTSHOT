@@ -59,10 +59,12 @@
     <Compile Include="Assets\Scripts\Items\item_medikit.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
     <Compile Include="Assets\Scripts\Player\weapon_grenadelauncher.cs" />
+    <Compile Include="Assets\Scripts\Player\playerSounds.cs" />
     <Compile Include="Assets\Scripts\Player\playerController.cs" />
     <Compile Include="Assets\Scripts\trigger_hurt.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemy.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
+    <Compile Include="Assets\Scripts\Items\item_grenadelauncher.cs" />
     <Compile Include="Assets\Scripts\Player\playerControls.cs" />
     <Compile Include="Assets\Scripts\Player\weapon_pistol.cs" />
     <Compile Include="Assets\Scripts\Enemies\projectile_lightningball.cs" />
@@ -77,13 +79,13 @@
     <Compile Include="Assets\Scripts\grenade.cs" />
     <Compile Include="Assets\Scripts\settings.cs" />
     <Compile Include="Assets\Scripts\ui_manager.cs" />
+    <Compile Include="Assets\Scripts\Items\ammo_shotgun.cs" />
+    <Compile Include="Assets\Scripts\Items\ammo_grenade.cs" />
     <Compile Include="Assets\UnityParticleEffects\Misc Effects\Scripts\SpawnEffect.cs" />
+    <Compile Include="Assets\Scripts\Items\ammo_pistol.cs" />
     <Compile Include="Assets\Scripts\Player\player.cs" />
     <Compile Include="Assets\Scripts\Items\item_shotgun.cs" />
-    <Compile Include="Assets\Scripts\Items\ammo_shotgun.cs" />
-    <Compile Include="Assets\Scripts\Items\ammo_pistol.cs" />
-    <Compile Include="Assets\Scripts\Items\item_grenadelauncher.cs" />
-    <Compile Include="Assets\Scripts\Items\ammo_grenade.cs" />
+    <Compile Include="Assets\Scripts\Enemies\ai_turret.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Developer Log.txt" />

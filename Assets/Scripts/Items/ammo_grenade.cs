@@ -9,6 +9,7 @@ public class ammo_grenade : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<player>().grenadeAmmo += 1;
+            other.gameObject.GetComponent<playerSounds>().PlaySound(1); //ammo pickup sound
             Destroy(gameObject);
         }
     }

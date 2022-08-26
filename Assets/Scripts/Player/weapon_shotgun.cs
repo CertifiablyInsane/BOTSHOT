@@ -21,12 +21,14 @@ public class weapon_shotgun : MonoBehaviour
 
     private Animator animator;
     private player playerScript;
+    private AudioSource S_Fire;
 
     private void Awake()
     {
         playerController = player.GetComponent<playerController>();
         animator = GetComponent<Animator>();
         playerScript = player.GetComponent<player>();
+        S_Fire = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -41,8 +43,11 @@ public class weapon_shotgun : MonoBehaviour
                 playerScript.shotgunAmmo--;
                 StartCoroutine(WeaponFireDelay());
                 shootingParticle.Play();
+                S_Fire.pitch = GetRandomPitch(1.0f);
+                S_Fire.volume = 1.0f;
+                S_Fire.Play();
 
-                for(int i = 0; i < 8; i++) //8 pellets
+                for (int i = 0; i < 8; i++) //8 pellets
                 {
                     Vector3 direction = GetDirection();
                     RaycastHit hit;
@@ -73,6 +78,9 @@ public class weapon_shotgun : MonoBehaviour
                 playerScript.shotgunAmmo--;
                 StartCoroutine(WeaponAltfireDelay());
                 shootingParticle.Play();
+                S_Fire.pitch = GetRandomPitch(1.0f);
+                S_Fire.volume = 0.6f;
+                S_Fire.Play();
 
                 for (int i = 0; i < 6; i++) //6 pellets
                 {
@@ -107,6 +115,7 @@ public class weapon_shotgun : MonoBehaviour
         direction.Normalize();
         return direction;
     }
+
     private Vector3 GetAltfireDirection()
     {
         Vector3 direction = fpsCam.transform.forward;
@@ -117,6 +126,11 @@ public class weapon_shotgun : MonoBehaviour
             );
         direction.Normalize();
         return direction;
+    }
+    private float GetRandomPitch(float f)
+    {
+        float value = Random.Range(-0.05f, 0.05f) + f;
+        return value;
     }
     private IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)
     {
