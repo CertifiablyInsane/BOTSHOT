@@ -1,3 +1,8 @@
+2022-08-29
+Finished turret and (kind of) gunner. Gunner AI is basically just a copy right now, and it uses the turret's model. Whatever, it works. Next step is
+recreating Doom 2's entryway as a first level. I mostly just wanted to get things ready for level one since it's been almost two months since I
+started this. Finally, some tangible progress has been made.
+
 2022-08-16
 Made item pickups for weapons and ammo, boosted grunt ai aggresiveness, rearranged some scripts.
 

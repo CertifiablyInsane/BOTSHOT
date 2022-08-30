@@ -105,7 +105,6 @@ public class playerController : MonoBehaviour
                 currentSound.clip = sound;
                 currentSound.Play();
                 footstepTimer = Time.fixedTime;
-                Debug.Log(footstepTimer);
             }
         }
         else

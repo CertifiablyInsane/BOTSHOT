@@ -660,7 +660,6 @@ GameObject:
   - component: {fileID: 4685599561920115943}
   - component: {fileID: 5083489226210272577}
   - component: {fileID: 5083489226210272583}
-  - component: {fileID: 5482014619562165346}
   m_Layer: 0
   m_Name: grunt_ragdoll
   m_TagString: Untagged
@@ -713,21 +712,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2646046986559549231, guid: 3a229d49a958e424fb587bde3bf1d6c9, type: 3}
---- !u!114 &5482014619562165346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5354013964513128029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 763669d726fd26c47b0b13ac1ccf76f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: OBJ_RAGDOLL
-  hurtable: 0
-  collideWithProjectiles: 1
 --- !u!1 &5419543756762345914
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\trigger_hurt.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemy.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
+    <Compile Include="Assets\Scripts\Enemies\ai_turret.cs" />
     <Compile Include="Assets\Scripts\Items\item_grenadelauncher.cs" />
     <Compile Include="Assets\Scripts\Player\playerControls.cs" />
     <Compile Include="Assets\Scripts\Player\weapon_pistol.cs" />
@@ -85,7 +86,7 @@
     <Compile Include="Assets\Scripts\Items\ammo_pistol.cs" />
     <Compile Include="Assets\Scripts\Player\player.cs" />
     <Compile Include="Assets\Scripts\Items\item_shotgun.cs" />
-    <Compile Include="Assets\Scripts\Enemies\ai_turret.cs" />
+    <Compile Include="Assets\Scripts\Enemies\ai_gunner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Developer Log.txt" />
