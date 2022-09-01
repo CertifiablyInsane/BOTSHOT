@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.9</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.16</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.14f1</UnityVersion>
@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Items\item_medikit.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
+    <Compile Include="Assets\Scripts\Enemies\ai_gunner.cs" />
     <Compile Include="Assets\Scripts\Player\weapon_grenadelauncher.cs" />
     <Compile Include="Assets\Scripts\Player\playerSounds.cs" />
     <Compile Include="Assets\Scripts\Player\playerController.cs" />
@@ -67,7 +68,9 @@
     <Compile Include="Assets\Scripts\Enemies\ai_turret.cs" />
     <Compile Include="Assets\Scripts\Items\item_grenadelauncher.cs" />
     <Compile Include="Assets\Scripts\Player\playerControls.cs" />
+    <Compile Include="Assets\Scripts\MapFunctions\func_button.cs" />
     <Compile Include="Assets\Scripts\Player\weapon_pistol.cs" />
+    <Compile Include="Assets\Scripts\MapFunctions\func_movelinear.cs" />
     <Compile Include="Assets\Scripts\Enemies\projectile_lightningball.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshLink.cs" />
     <Compile Include="Assets\Scripts\tags.cs" />
@@ -86,7 +89,6 @@
     <Compile Include="Assets\Scripts\Items\ammo_pistol.cs" />
     <Compile Include="Assets\Scripts\Player\player.cs" />
     <Compile Include="Assets\Scripts\Items\item_shotgun.cs" />
-    <Compile Include="Assets\Scripts\Enemies\ai_gunner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Developer Log.txt" />
@@ -303,11 +305,14 @@
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
@@ -323,6 +328,12 @@
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\AOT\Newtonsoft.Json.dll</HintPath>
@@ -674,29 +685,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{5364EF92-5DFB-76E5-508C-B0A590259D03}</Project>
-      <Name>Unity.Postprocessing.Runtime</Name>
+    <ProjectReference Include="Unity.Timeline.Player.csproj">
+      <Project>{811338C4-8B85-79F3-8DAD-8BD920685E2D}</Project>
+      <Name>Unity.Timeline.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.Timeline.csproj">
-      <Project>{56D9B37D-9583-7BA8-0A1B-D9AEF9E038CB}</Project>
-      <Name>Unity.Timeline</Name>
+    <ProjectReference Include="Unity.TextMeshPro.Player.csproj">
+      <Project>{33245617-E54D-30C1-50DD-0E302211E73C}</Project>
+      <Name>Unity.TextMeshPro.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{6E7317EC-2A3B-B6BC-162E-3E5BA8DE81DC}</Project>
-      <Name>Unity.TextMeshPro</Name>
+    <ProjectReference Include="Unity.ProBuilder.Player.csproj">
+      <Project>{9018B417-CCF6-9918-C731-5139906123B7}</Project>
+      <Name>Unity.ProBuilder.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.InputSystem.csproj">
-      <Project>{9C156983-D104-FE0C-3F6A-F6F25C985798}</Project>
-      <Name>Unity.InputSystem</Name>
+    <ProjectReference Include="Unity.InputSystem.Player.csproj">
+      <Project>{9A4B72B6-136A-5961-5D94-4A88A3BEEDBF}</Project>
+      <Name>Unity.InputSystem.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{FC7349AE-1C2F-F770-E4FF-DD6B35D26D4F}</Project>
-      <Name>UnityEngine.UI</Name>
+    <ProjectReference Include="UnityEngine.UI.Player.csproj">
+      <Project>{F22B6CB2-4630-CAC2-279F-154CF1AF021A}</Project>
+      <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.ProGrids.csproj">
-      <Project>{026196E6-2DD2-B0FA-626F-DD61D3DB0D92}</Project>
-      <Name>Unity.ProGrids</Name>
+    <ProjectReference Include="Unity.Postprocessing.Runtime.Player.csproj">
+      <Project>{148DC8C4-57CA-4EA8-6148-859A0A65CCD7}</Project>
+      <Name>Unity.Postprocessing.Runtime.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProGrids.Player.csproj">
+      <Project>{80683666-F94A-AFAC-9792-D73B1815CD5F}</Project>
+      <Name>Unity.ProGrids.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

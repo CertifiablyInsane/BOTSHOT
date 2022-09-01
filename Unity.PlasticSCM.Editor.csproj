@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.9</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.16</UnityProjectGeneratorVersion>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.14f1</UnityVersion>
@@ -72,8 +72,8 @@
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\UI\UIElements\TabView.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\AssetsUtils\Processor\AssetPostprocessor.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\Diff\ChangeCategoryTreeViewItem.cs" />
-    <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\History\HistorySelection.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Gluon\UpdateReport\UpdateReportListHeaderState.cs" />
+    <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\History\HistorySelection.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\UI\PlasticDialog.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Inspector\DrawInspectorOperations.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\UI\Tree\TreeHeaderColumns.cs" />
@@ -93,8 +93,8 @@
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\Diff\Dialogs\GetRestorePathDialog.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\Changesets\ChangesetsListView.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\AssetMenu\AssetMenuOperations.cs" />
-    <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\MetaPath.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\IncomingChanges\Developer\IncomingChangesTab.cs" />
+    <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\MetaPath.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\UI\Progress\DrawProgressForDialogs.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\EnumExtensions.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\UI\DockEditorWindow.cs" />
@@ -195,8 +195,8 @@
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\IncomingChanges\Gluon\Errors\ErrorsListHeaderState.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\UI\DrawActionHelpBox.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\UI\DrawSearchField.cs" />
-    <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\Diff\DiffPanel.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\Welcome\DownloadAndInstallOperation.cs" />
+    <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\Diff\DiffPanel.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\IncomingChanges\Developer\DirectoryConflicts\ConflictResolutionState.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Gluon\ProgressOperationHandler.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\PendingChanges\Dialogs\CheckinMergeNeededDialog.cs" />
@@ -237,11 +237,11 @@
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\PendingChanges\PendingChangesMultiColumnHeader.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\AssetsUtils\Processor\PlasticAssetsProcessor.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\CreateWorkspace\DrawCreateWorkspaceView.cs" />
-    <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\Changesets\ChangesetsListHeaderState.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\DrawGuiModeSwitcher.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\CheckWorkspaceTreeNodeStatus.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Gluon\UpdateReport\UpdateReportListView.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Tool\LaunchTool.cs" />
+    <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\Views\Changesets\ChangesetsListHeaderState.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\AssetsUtils\Processor\AssetsProcessor.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\ViewSwitcher.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\PlasticSCM\UI\DrawActionButton.cs" />

@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.9</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.16</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.14f1</UnityVersion>
@@ -88,8 +88,8 @@
     <Compile Include="Library\PackageCache\com.unity.postprocessing@2.3.0\PostProcessing\Runtime\PostProcessDebugLayer.cs" />
     <Compile Include="Library\PackageCache\com.unity.postprocessing@2.3.0\PostProcessing\Runtime\Utils\Spline.cs" />
     <Compile Include="Library\PackageCache\com.unity.postprocessing@2.3.0\PostProcessing\Runtime\PostProcessEffectSettings.cs" />
-    <Compile Include="Library\PackageCache\com.unity.postprocessing@2.3.0\PostProcessing\Runtime\Monitors\Monitor.cs" />
     <Compile Include="Library\PackageCache\com.unity.postprocessing@2.3.0\PostProcessing\Runtime\Utils\TargetPool.cs" />
+    <Compile Include="Library\PackageCache\com.unity.postprocessing@2.3.0\PostProcessing\Runtime\Monitors\Monitor.cs" />
     <Compile Include="Library\PackageCache\com.unity.postprocessing@2.3.0\PostProcessing\Runtime\Effects\TemporalAntialiasing.cs" />
     <Compile Include="Library\PackageCache\com.unity.postprocessing@2.3.0\PostProcessing\Runtime\Effects\FastApproximateAntialiasing.cs" />
     <Compile Include="Library\PackageCache\com.unity.postprocessing@2.3.0\PostProcessing\Runtime\PostProcessProfile.cs" />

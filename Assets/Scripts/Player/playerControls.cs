@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/playerControls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Player/playerControls.inputactions'
 
 using System;
 using System.Collections;
@@ -110,6 +110,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": ""weapon7"",
                     ""type"": ""Button"",
                     ""id"": ""c0d31983-cb9c-4171-8e57-07c79417ded6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""use"",
+                    ""type"": ""Button"",
+                    ""id"": ""ead0675a-e777-4e16-b989-743259bceae1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -291,6 +299,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c36c360-f057-4660-95df-e837803dc85c"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -311,6 +330,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Generic_weapon5 = m_Generic.FindAction("weapon5", throwIfNotFound: true);
         m_Generic_weapon6 = m_Generic.FindAction("weapon6", throwIfNotFound: true);
         m_Generic_weapon7 = m_Generic.FindAction("weapon7", throwIfNotFound: true);
+        m_Generic_use = m_Generic.FindAction("use", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -372,6 +392,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Generic_weapon5;
     private readonly InputAction m_Generic_weapon6;
     private readonly InputAction m_Generic_weapon7;
+    private readonly InputAction m_Generic_use;
     public struct GenericActions
     {
         private @PlayerControls m_Wrapper;
@@ -388,6 +409,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @weapon5 => m_Wrapper.m_Generic_weapon5;
         public InputAction @weapon6 => m_Wrapper.m_Generic_weapon6;
         public InputAction @weapon7 => m_Wrapper.m_Generic_weapon7;
+        public InputAction @use => m_Wrapper.m_Generic_use;
         public InputActionMap Get() { return m_Wrapper.m_Generic; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -433,6 +455,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @weapon7.started -= m_Wrapper.m_GenericActionsCallbackInterface.OnWeapon7;
                 @weapon7.performed -= m_Wrapper.m_GenericActionsCallbackInterface.OnWeapon7;
                 @weapon7.canceled -= m_Wrapper.m_GenericActionsCallbackInterface.OnWeapon7;
+                @use.started -= m_Wrapper.m_GenericActionsCallbackInterface.OnUse;
+                @use.performed -= m_Wrapper.m_GenericActionsCallbackInterface.OnUse;
+                @use.canceled -= m_Wrapper.m_GenericActionsCallbackInterface.OnUse;
             }
             m_Wrapper.m_GenericActionsCallbackInterface = instance;
             if (instance != null)
@@ -473,6 +498,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @weapon7.started += instance.OnWeapon7;
                 @weapon7.performed += instance.OnWeapon7;
                 @weapon7.canceled += instance.OnWeapon7;
+                @use.started += instance.OnUse;
+                @use.performed += instance.OnUse;
+                @use.canceled += instance.OnUse;
             }
         }
     }
@@ -491,5 +519,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnWeapon5(InputAction.CallbackContext context);
         void OnWeapon6(InputAction.CallbackContext context);
         void OnWeapon7(InputAction.CallbackContext context);
+        void OnUse(InputAction.CallbackContext context);
     }
 }

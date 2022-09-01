@@ -8,6 +8,8 @@ public class player : MonoBehaviour
     public int shotgunAmmo;
     public int grenadeAmmo;
 
+    [SerializeField] private Transform cameraBody;
+
     public void TakeDamage(int amount)
     {
         health -= amount;
@@ -27,6 +29,7 @@ public class player : MonoBehaviour
     }
     private void Die()
     {
-        //stuff
+        GetComponent<playerController>().enabled = false;
+        cameraBody.position -= new Vector3(0, -1, 0); 
     }
 }

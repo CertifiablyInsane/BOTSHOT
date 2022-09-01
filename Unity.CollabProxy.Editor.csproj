@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.9</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.16</UnityProjectGeneratorVersion>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.14f1</UnityVersion>
@@ -61,8 +61,8 @@
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\Collaborate\Utilities\MenuUtilities.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\Collaborate\Components\Menus\FloatingMenuItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\Collaborate\Views\Adapters\IAdapter.cs" />
-    <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\Collaborate\Components\IconButton.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\Collaborate\Components\SearchBar.cs" />
+    <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\Collaborate\Components\IconButton.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\Collaborate\Utilities\Threading.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\Collaborate\Views\MainPageView.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.5.7\Editor\Collaborate\Models\HistoryModel.cs" />
@@ -786,6 +786,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.Settings.Editor.csproj">
+      <Project>{C756F5C4-C534-10E6-B279-26D4A664BB8C}</Project>
+      <Name>Unity.Settings.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{532C68B6-9B2F-FC2A-617C-C86FB344862B}</Project>
       <Name>UnityEditor.UI</Name>

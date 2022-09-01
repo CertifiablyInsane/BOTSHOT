@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.9</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.16</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.14f1</UnityVersion>
@@ -267,14 +267,14 @@
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\HID\HIDSupport.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Utilities\DisplayStringFormatAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Actions\InputInteractionContext.cs" />
-    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Actions\InputBindingComposite.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Controls\Vector3Control.cs" />
+    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Actions\InputBindingComposite.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Actions\InputAction.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\Steam\SteamControllerType.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\Users\InputUserSettings.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\Switch\SwitchSupportHID.cs" />
-    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\WebGL\WebGLSupport.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Actions\IInputActionCollection.cs" />
+    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\WebGL\WebGLSupport.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Devices\Commands\InitiateUserAccountPairingCommand.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Editor\Internal\InputStateWindow.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\UI\TrackedDeviceRaycaster.cs" />
@@ -322,8 +322,8 @@
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\InputSystem.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Utilities\StringHelpers.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Devices\Commands\RequestResetCommand.cs" />
-    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Editor\Debugger\InputDeviceDebuggerWindow.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Utilities\PrimitiveValue.cs" />
+    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Editor\Debugger\InputDeviceDebuggerWindow.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\InputSystemObject.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Editor\InputParameterEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.0.2\InputSystem\Plugins\iOS\iOSSupport.cs" />
@@ -901,9 +901,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{FC7349AE-1C2F-F770-E4FF-DD6B35D26D4F}</Project>
-      <Name>UnityEngine.UI</Name>
+    <ProjectReference Include="UnityEngine.UI.Player.csproj">
+      <Project>{F22B6CB2-4630-CAC2-279F-154CF1AF021A}</Project>
+      <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

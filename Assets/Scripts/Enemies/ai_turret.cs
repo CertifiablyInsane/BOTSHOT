@@ -58,7 +58,7 @@ public class ai_turret : MonoBehaviour
     }
     private void A_IDLE()
     {
-        if(Physics.Linecast(transform.position, playerPos.position, visionMask))
+        if(!Physics.Linecast(transform.position, playerPos.position, visionMask))
         {
             behaviourState = "A_ACTIVE"; //Wake up!
         }

@@ -64,6 +64,17 @@ public class playerController : MonoBehaviour
         {
             BroadcastMessage("Shoot");
         }
+        if(playerControls.Generic.use.triggered)
+        {
+            RaycastHit hit;
+            if(Physics.Raycast(cameraBody.transform.position, cameraBody.transform.forward.normalized, out hit, 2f))
+            {
+                if(hit.transform.tag == "Usable")
+                {
+                    hit.transform.BroadcastMessage("OnUsed");
+                }
+            }
+        }
 
         if(isOnWeaponCooldown == false)
         {

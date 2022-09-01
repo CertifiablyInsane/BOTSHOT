@@ -26,6 +26,7 @@ public class ai_gunner : MonoBehaviour
     private bool AIUpdatesEnabled = true;
     private int attackCooldown = 60;
     private int projectileID = 0;
+    private LayerMask visionMask;
 
     private AudioSource currentSound;
 
@@ -35,6 +36,7 @@ public class ai_gunner : MonoBehaviour
         animator = GetComponent<Animator>();
         hitbox = GetComponent<CapsuleCollider>();
         currentSound = GetComponent<AudioSource>();
+        visionMask = LayerMask.GetMask("Ground");
     }
     private void Update()
     {
@@ -57,13 +59,17 @@ public class ai_gunner : MonoBehaviour
     private void A_IDLE()
     {
         float angle = GetAngleFromPlayer(transform.position, playerPos.position);
-        if (angle > 5.1051f | angle < 1.1781f)
+        if (!Physics.Linecast(transform.position, playerPos.position, visionMask))
         {
-            behaviourState = "A_CHASE";
-        }
-        else
-        {
-            StartCoroutine("SuspendAIForTime", 0.25f);
+            if (angle > 5.1051f | angle < 1.1781f)
+            {
+                behaviourState = "A_CHASE";
+                animator.SetBool("Active", true);
+            }
+            else
+            {
+                StartCoroutine("SuspendAIForTime", 0.25f);
+            }
         }
     }
 
@@ -125,7 +131,7 @@ public class ai_gunner : MonoBehaviour
         {
             float distanceFromTarget = Vector3.Distance(transform.position, playerPos.position);
             attackCooldown += 30; //try again in 30 tics
-            if (1f / distanceFromTarget * 4f > Random.Range(0f, 1f)) //at 5 it's 50%, at 10 it's 25%, etc.
+            if (1f / distanceFromTarget * 4f > Random.Range(0f, 1f) && !Physics.Linecast(transform.position, playerPos.position, visionMask))
             {
                 behaviourState = "A_ATTACK";
             }
